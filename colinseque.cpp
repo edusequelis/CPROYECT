@@ -1,4 +1,22 @@
-hola monudo
+
+char mat[5], nom[21], app[21], apm[21], car[5], cor[31];
+int dn, mn, an;
+float prom;
+
+void pidemat ()
+{
+int x=1;
+while(x!=0)
+{
+printf("Indica la matr%ccula del alumno",161); scanf("%s",mat);
+x=strcmp(mat,"A",1);
+if (x!=0) printf ("Error la matricula tiene que iniciar con "A"");
+system("cls");
+}
+printf("La matricula fue %s",mat);
+}
+
+void pide
 
 void menu()
 {
