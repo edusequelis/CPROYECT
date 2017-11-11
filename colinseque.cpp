@@ -4,119 +4,123 @@ float prom;
 bool digit
 void pide ()
 {
-int q=1, w=0;
-while((q!=0)&&(w!=4)&&(digit==true))
-{
-	printf("Indica la matr%ccula del alumno",161); scanf("%s",mat);
-	y=strlen(mat)
-	x=strcmp(mat,"A",1);
-	for(int i=1,i<5,i++)
+	int q=1, w=0;
+	while((q!=0)&&(w!=4)&&(digit==true))
 	{
-		if (isdigit(mat[i])) digit== true;
-		else {printf("Error solo digitos después de la "A""); digit== false}
-	}
-	if (y!=4) printf ("Error la matr%ccula tiene que tener 4 caracteres una "A" y 3 d%cgitos");
-	if (x!=0) printf ("Error la matricula tiene que iniciar con "A"");
-	
-	int z=0;
-	while((z<1)||(z>20))
-	{
-	printf("Indica el nombre del alumno");
-	gets(nom);
-	z=strlen(nom);
-	if((z<1)||(z>20)) printf("Error el nombre debe de tener entre 1 y 20 caracteres");
-	for(int i=0;i<20;i++)
+		printf("Indica la matr%ccula del alumno",161); scanf("%s",mat);
+		y=strlen(mat)
+		x=strcmp(mat,"A",1);
+		for(int i=1,i<5,i++)
 		{
-		if(nom[i]==" ") {nom[i]="_";}
+			if (isdigit(mat[i])) digit== true;
+			else {printf("Error solo digitos después de la "A""); digit== false}
+		}
+		if (y!=4) printf ("Error la matr%ccula tiene que tener 4 caracteres una "A" y 3 d%cgitos");
+		if (x!=0) printf ("Error la matricula tiene que iniciar con "A"");
+	
+		int z=0;
+		while((z<1)||(z>20))
+		{
+			printf("Indica el nombre del alumno");
+			gets(nom);
+			z=strlen(nom);
+			if((z<1)||(z>20)) printf("Error el nombre debe de tener entre 1 y 20 caracteres");
+			for(int i=0;i<20;i++)
+			{
+				if(nom[i]==" ") {nom[i]="_";}
+			}
+		}
+		int f=0;
+		while((f<2)||(f>20))
+		{
+			printf("Indica el apellido paterno del alumno");
+			gets(app);
+			f=strlen(app);
+			if((f<1)||(f>20)) {printf("Error el nombre debe de tener entre 1 y 20 caracteres"); system("cls")}
+			for(int i=0;i<20;i++)
+			{
+				if(app[i]==" ") {app[i]="_";}
+			}
+		}
+		int a=0;
+		while((a<2)||(a>20))
+		{
+			printf("Indica el apellido materno del alumno");
+			gets(apm);
+			a=strlen(apm);
+			if((a<1)||(a>20)) {printf("Error el nombre debe de tener entre 1 y 20 caracteres"); system("cls");}
+			for(int i=0;i<20;i++)
+			{
+				if(apm[i]==" ") {apm[i]="_";}
+			}
+		}
+		dn=0;
+		while((dn<1)||(dn>31))
+		{
+			printf("indica el día de nacimiento del alumno");
+			scanf("%d",&dn);
+			if((dn<1)||(dn>31)) {printf("Error el dia tiene que estar entre 1 y 31");
+			system("cls")}
+			if(dn<9) {dn=dn[1]; dn[0]=0;}
+		}
+		mn=0;
+		while((mn<1)||(mn>12))
+		{
+			printf("indica el día de nacimiento del alumno");
+			scanf("%d",&mn);
+			if((mn<1)||(mn>31)) {printf("Error el mes tiene que estar entre 1 y 12");
+			system("cls")}
+			if(mn<9) {mn=mn[1]; mn[0]=0;}
+		}
+		an=0
+		while(an<1900)
+		{
+			printf("indica el año de nacimiento del alumno");
+			scanf("%d",&an);
+			if(an<1900) {printf("Error el año tiene que ser superior a 1900");
+			system("cls")}
+		}
+		prom=-1
+		while((prom<0)||(prom>100))
+		{
+			printf("indica el promedio del alumno");
+			scanf("%d",&prom);
+			if((prom<0)||(prom>100)) {printf("Error el promedio tiene que ser entre 0 y 100 ");
+			system("cls")}
+		}
+		car
+		{
+			
+		}
+		cor
+		{
+			
 		}
 	}
-	int f=0;
-	while((f<2)||(f>20))
-	{
-	printf("Indica el apellido paterno del alumno");
-	gets(app);
-	f=strlen(app);
-	if((f<1)||(f>20)) {printf("Error el nombre debe de tener entre 1 y 20 caracteres"); system("cls")}
-	for(int i=0;i<20;i++)
-		{
-		if(app[i]==" ") {app[i]="_";}
-		}
-	}
-	int a=0;
-	while((a<2)||(a>20))
-	{
-	printf("Indica el apellido materno del alumno");
-	gets(apm);
-	a=strlen(apm);
-	if((a<1)||(a>20)) {printf("Error el nombre debe de tener entre 1 y 20 caracteres"); system("cls");}
-	for(int i=0;i<20;i++)
-		{
-		if(apm[i]==" ") {apm[i]="_";}
-		}
-	}
-	dn=0;
-	while((dn<1)||(dn>31))
-	{
-		printf("indica el día de nacimiento del alumno");
-		scanf("%d",&dn);
-		if((dn<1)||(dn>31)) {printf("Error el dia tiene que estar entre 1 y 31");
-		system("cls")}
-		if(dn<9) {dn=dn[1]; dn[0]=0;}
-	}
-	mn=0;
-	while((mn<1)||(mn>12))
-	{
-		printf("indica el día de nacimiento del alumno");
-		scanf("%d",&mn);
-		if((mn<1)||(mn>31)) {printf("Error el mes tiene que estar entre 1 y 12");
-		system("cls")}
-		if(mn<9) {mn=mn[1]; mn[0]=0;}
-	}
-	an=0
-	while(an<1900)
-	{
-		printf("indica el año de nacimiento del alumno");
-		scanf("%d",&an);
-		if(an<1900) {printf("Error el año tiene que ser superior a 1900");
-		system("cls")}
-	}
-	prom=-1
-	while((prom<0)||(prom>100))
-	{
-		printf("indica el promedio del alumno");
-		scanf("%d",&prom);
-		if((prom<0)||(prom>100)) {printf("Error el promedio tiene que ser entre 0 y 100 ");
-		system("cls")}
-	}
-	
-	
-	
 }
-}
-
-void pidenom ()
+//grabar alumnos
+void grabardatos()
 {
-
-}
-
-void pideapp ()
-{
-}
-
-void pideapm ()
-{
-}
-
-void pidefn ()
-{
-}
-
-void correo ()
-{
+	ofsretam arch;
+	arch.open("alumnos.txt",ios::app);
+	arch <<mat" " <<nom" " <<app" " <<apm" " <<dn" " <<mn" " <<an" " <<prom" " <<car" " <<cor"/n";
+	arch.close
 }
 
 void consulta_al_mat()
 {
+	char mat_b[5];
+	printf("Indica la matricula que quieres buscar"); gets(mat_b);
+	ifstream.arch;
+	arch.open("alumnos.txt",ios::in);
+	while(!arch.eof())
+	{
+		arch mat nom app apm dn mn an prom car cor;
+		if(strcmp(mat,mat_b==0))
+		{
+			printf("El nombre del alumno es %s",nom);
+		}
+	}
 }
 
 void consulta_al_correo()
