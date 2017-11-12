@@ -39,7 +39,7 @@ void pide ()
 		}
 		if (y!=4) printf ("Error la matr%ccula tiene que tener 4 caracteres una "A" y 3 d%cgitos");
 		if (x!=0) printf ("Error la matricula tiene que iniciar con "A"");
-	
+	}
 		int z=0;
 		while((z<1)||(z>20))
 		{
@@ -118,7 +118,6 @@ void pide ()
 		{
 			
 		}
-	}
 }
 //grabar alumnos
 void grabardatos()
