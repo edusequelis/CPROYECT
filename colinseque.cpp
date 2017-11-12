@@ -450,26 +450,71 @@ void consulta_al_mat()
 	printf("Indica la matricula que quieres buscar"); gets(mat_b);
 	ifstream.arch;
 	arch.open("alumnos.txt",ios::in);
-	while(!arch.eof())
+	if (arch.fail())
 	{
-		arch mat nom app apm dn mn an prom car cor;
-		if(strcmp(mat,mat_b==0))
+		printf("El archivo no existe");
+	}
+	else
+	{
+		while(!arch.eof())
 		{
-			printf("El nombre del alumno es %s",nom);
+			arch >>mat>>nom>>app>>apm>>dn>>mn>>an>>prom>>car>>cor;
+			if(strcmp((mat,mat_b)==0))
+			{
+				printf("Los datos del alumno son %s, %s, %s, %s, %c, %c, %c, %f, %s, %s",mat, nom, app, apm, dn, mn, an, prom, car);
+			}
 		}
+	arch.close();
 	}
 }
 
 void consulta_al_correo()
 {
-
-
+char cor_b[31];
+	printf("Indica el correo que quieres buscar"); gets(cor_b);
+	ifstream.arch;
+	arch.open("alumnos.txt",ios::in);
+	if (arch.fail())
+	{
+		printf("El archivo no existe");
+	}
+	else
+	{
+		while(!arch.eof())
+		{
+			arch >>mat>>nom>>app>>apm>>dn>>mn>>an>>prom>>car>>cor;
+			if(strcmp((cor,cor_b)==0))
+			{
+				printf("Los datos del alumno son %s, %s, %s, %s, %c, %c, %c, %f, %s, %s",mat, nom, app, apm, dn, mn, an, prom, car);
+			}
+		}
+	arch.close();
+	}
 }
 
 void listado_al_app()
 {
+	char app_list[21];
+	printf("Indica el apellido paterno que quieres buscar"); gets(app_b);
+	ifstream.arch;
+	arch.open("alumnos.txt",ios::in);
+	if (arch.fail())
+	{
+		printf("El archivo no existe");
+	}
+	else
+	{
+		while(!arch.eof())
+		{
+		arch >>mat>>nom>>app>>apm>>dn>>mn>>an>>prom>>car>>cor;
+			if(strcmp(app,app_b==0))
+			{
+				printf("Los datos del alumno son %s, %s, %s, %s, %c, %c, %c, %f, %s, %s/n",mat, nom, app, apm, dn, mn, an, prom, car);
+			}
+		}
+		arch.close();
+	}
 }
-
 void reporte_cal_un()
 {
 }
