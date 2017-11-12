@@ -121,13 +121,13 @@ void pide ()
 	}
 }
 //grabar alumnos
-/*void grabardatos()
+void grabardatos()
 {
 	ofsretam arch;
 	arch.open("alumnos.txt",ios::app);
-	arch <<mat" " <<nom" " <<app" " <<apm" " <<dn" " <<mn" " <<an" " <<prom" " <<car" " <<cor"/n";
+	arch <<mat" " <<nom" " <<app" " <<apm" " <<dn" " <<mn" " <<an" " <<prom" " <<car" " << "/n";
 	arch.close
-}*/
+}
 void correo()
 {
 	char mat[5], nom[21], app[21], apm[21], car[5], cor,primera;
