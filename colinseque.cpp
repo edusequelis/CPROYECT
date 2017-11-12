@@ -33,8 +33,6 @@
 
 
 
-
-
 using namespace std;
 char mat[5], nom[21], app[21], apm[21], car[5], cor, clcar[5];
 int dn[3], mn[3], an;
