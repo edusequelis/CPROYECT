@@ -1,3 +1,8 @@
+//checar que no haya ñs
+
+
+
+
 #if defined(_WIN32) || defined(WIN32) // Windows-way ~
    #define WIN32_LEAN_AND_MEAN // para no incluir cosas innecesarias en windows.h
    #include <Windows.h>
@@ -83,7 +88,7 @@ void pide ()
 		mn=0;
 		while((mn<1)||(mn>12))
 		{
-			printf("indica el día de nacimiento del alumno");
+			printf("indica el mes de nacimiento del alumno");
 			scanf("%d",&mn);
 			if((mn<1)||(mn>31)) {printf("Error el mes tiene que estar entre 1 y 12");
 			system("cls")}
