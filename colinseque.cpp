@@ -20,7 +20,7 @@
 
 
 using namespace std;
-char mat[5], nom[21], app[21], apm[21], car[5], cor[31], clcar[5], car[31];
+char mat[5], nom[21], app[21], apm[21], car[5], cor, clcar[5], car[31];
 int dn[3], mn[3], an;
 float prom;
 bool digit
@@ -118,6 +118,7 @@ void pide ()
 		{
 			
 		}
+	
 }
 //grabar alumnos
 /*void grabardatos()
