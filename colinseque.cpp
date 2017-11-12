@@ -1,3 +1,20 @@
+#if defined(_WIN32) || defined(WIN32) // Windows-way ~
+   #define WIN32_LEAN_AND_MEAN // para no incluir cosas innecesarias en windows.h
+   #include <Windows.h>
+   #define gotoxy(x,y) {COORD a;a.X = x; a.Y = y;SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),a);}
+#else // Linux-Way:)
+#include <ncurses.h>
+   #define gotoxy(x,y) move(x,y)
+#endif
+# include <stdio.h>
+# include <conio.h>
+# include <stdlib.h>
+# include <MATH.h>
+# include <String.h>
+#include <fstream>
+
+
+using namespace std;
 char mat[5], nom[21], app[21], apm[21], car[5], cor[31], clcar[5], car[31];
 int dn[3], mn[3], an;
 float prom;
