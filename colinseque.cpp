@@ -43,17 +43,17 @@ bool digit;
 void pide ()
 {
 
-	int q=1, w=0;
+	int q=1, w=0, p=1;
 
-	while((q!=0)&&(w!=4)&&(digit==true))
+	while((q!=0)||(w!=4)||(digit==true)||(p==1))
 
 	{
 
-		printf("Indica la matr%ccula del alumno",161); scanf("%s",mat);
+		printf("Indica la matricula del alumno"); scanf("%s",mat);
 
-		y=strlen(mat);
+		w=strlen(mat);
 
-		x=strcmp(mat,"A",1);
+		q=strcmp(mat,"A",1);
 
 		for(int i=1;i<5;i++)
 
@@ -65,10 +65,29 @@ void pide ()
 
 		}
 
-		if (y!=4) printf ("Error la matricula tiene que tener 4 caracteres una A y 3 digitos");
+		if (w!=4) printf ("Error la matricula tiene que tener 4 caracteres una A y 3 digitos");
 
-		if (x!=0) printf ("Error la matricula tiene que iniciar con A");
-
+		if (q!=0) printf ("Error la matricula tiene que iniciar con A");
+		char mat_b[5];
+		ifstream.arch;
+		arch.open("alumnos.txt",ios::in);
+		if (arch.fail())
+		{
+			printf("El archivo no existe");
+		}
+		else
+		{
+			while(!arch.eof())
+			{
+				arch >>mat>>nom>>app>>apm>>dn>>mn>>an>>prom>>car>>cor;
+				if(strcmp((mat,mat_b)==0))
+				{
+					printf("La matricula %s ya existe, marque otra",mat);
+				}
+			}
+		arch.close();
+		}
+			
 	}
 
 		int z=0;
