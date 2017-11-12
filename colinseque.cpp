@@ -121,12 +121,124 @@ void pide ()
 	}
 }
 //grabar alumnos
-void grabardatos()
+/*void grabardatos()
 {
 	ofsretam arch;
 	arch.open("alumnos.txt",ios::app);
 	arch <<mat" " <<nom" " <<app" " <<apm" " <<dn" " <<mn" " <<an" " <<prom" " <<car" " <<cor"/n";
 	arch.close
+}*/
+void correo()
+{
+	char mat[5], nom[21], app[21], apm[21], car[5], cor,primera;
+	int dn;
+	int mn;
+	int an_aux;
+	int prom;
+	strlwr(nom); 
+	strlwr(app);
+	strlwr(apm);
+	for (int i=0;i<26;i++)
+	{
+		if((nom[i]==char(160))||(nom[i]==char(181))) nom[i]='a';
+		if((nom[i]==char(130))||(nom[i]==char(144))) nom[i]='e';
+		if((nom[i]==char(161))||(nom[i]==char(214))) nom[i]='i';
+		if((nom[i]==char(162))||(nom[i]==char(224))) nom[i]='o';
+		if((nom[i]==char(163))||(nom[i]==char(233))) nom[i]='u';
+		if((nom[i]==char(164))||(nom[i]==char(165))) nom[i]='n';
+		if((nom[i]==char(32)))                       nom[i]='_';
+    }
+    for (int i=0;i<26;i++)
+	{
+		if((app[i]==char(160))||(app[i]==char(181))) app[i]='a';
+		if((app[i]==char(130))||(app[i]==char(144))) app[i]='e';
+		if((app[i]==char(161))||(app[i]==char(214))) app[i]='i';
+		if((app[i]==char(162))||(app[i]==char(224))) app[i]='o';
+		if((app[i]==char(163))||(app[i]==char(233))) app[i]='u';
+		if((app[i]==char(164))||(app[i]==char(165))) app[i]='n';
+		if((app[i]==char(32)))                       app[i]='_';
+	}
+	 for (int i=0;i<26;i++)
+	{
+		if((apm[i]==char(160))||(apm[i]==char(181))) apm[i]='a';
+		if((apm[i]==char(130))||(apm[i]==char(144))) apm[i]='e';
+		if((apm[i]==char(161))||(apm[i]==char(214))) apm[i]='i';
+		if((apm[i]==char(162))||(apm[i]==char(224))) apm[i]='o';
+		if((apm[i]==char(163))||(apm[i]==char(233))) apm[i]='u';
+		if((apm[i]==char(164))||(apm[i]==char(165))) apm[i]='n';
+		if((apm[i]==char(32)))                       apm[i]='_';
+	}
+	primera=nom[0];
+	cor=primera;
+	
+/*	
+	for(int i=0;i<=strlen(an_aux);i++)
+	{
+		an[i]=an_aux[i];
+	}
+*/	
+	char an[4];
+/*
+	sprintf(an,"%d",an_aux); 
+
+	str[posicion] = an[2]; 
+
+	str[posicion+1] = an[3];*/
+	
+	sprintf(an, "%d", an_aux); 
+	
+	
+	
+	if(mn<10)
+	{
+			if(dn<10)
+	{
+		//char dn_aux[3]; strcpy(dn_aux,dn);
+		//dn_aux=dn; 
+	ofstream arch;
+	arch.open("alumnos.txt", ios::app);
+	for (int i=0;i<strlen(apm);i++) if (apm[i]==' ') apm[i]='_';
+	for (int i=0;i<strlen(app);i++) if (app[i]==' ') app[i]='_';
+	arch <<mat <<" " <<nom <<" " <<app<<" "<<apm <<" " <<dn <<" " <<mn <<" " <<an <<" " <<prom <<" " <<car<<" "<<cor <<app <<an[2]<<an[3]<<"0"<<mn<<"0"<<dn<<"@itesm.mx" <<"\n"; 
+	arch.close();
+	}
+	else
+	{
+	ofstream arch;
+	arch.open("alumnos.txt", ios::app);
+	for (int i=0;i<strlen(apm);i++) if (apm[i]==' ') apm[i]='_';
+	for (int i=0;i<strlen(app);i++) if (app[i]==' ') app[i]='_';
+	arch <<mat <<" " <<nom <<" " <<app<<" "<<apm <<" " <<dn <<" " <<mn <<" " <<an <<" " <<prom <<" " <<car<<" "<<cor <<app <<an[2]<<an[3]<<"0"<<mn<<dn<<"@itesm.mx" <<"\n"; 
+	arch.close();
+	}
+	}
+	else
+	{
+			if(dn<10)
+	{
+		//char dn_aux[3]; strcpy(dn_aux,dn);
+		//dn_aux=dn; 
+	ofstream arch;
+	arch.open("alumnos.txt", ios::app);
+	for (int i=0;i<strlen(apm);i++) if (apm[i]==' ') apm[i]='_';
+	for (int i=0;i<strlen(app);i++) if (app[i]==' ') app[i]='_';
+	arch <<mat <<" " <<nom <<" " <<app<<" "<<apm <<" " <<dn <<" " <<mn <<" " <<an <<" " <<prom <<" " <<car<<" "<<cor <<app <<an[2]<<an[3]<<mn<<"0"<<dn<<"@itesm.mx" <<"\n"; 
+	arch.close();
+	}
+	else
+	{
+	ofstream arch;
+	arch.open("alumnos.txt", ios::app);
+	for (int i=0;i<strlen(apm);i++) if (apm[i]==' ') apm[i]='_';
+	for (int i=0;i<strlen(app);i++) if (app[i]==' ') app[i]='_';
+	arch <<mat <<" " <<nom <<" " <<app<<" "<<apm <<" " <<dn <<" " <<mn <<" " <<an <<" " <<prom <<" " <<car<<" "<<cor <<app <<an[2]<<an[3]<<mn<<dn<<"@itesm.mx" <<"\n"; 
+	arch.close();
+	}
+	}
+
+	
+	printf("Chequele joven");
+	getche();
 }
 
 void consulta_al_mat()
@@ -147,6 +259,8 @@ void consulta_al_mat()
 
 void consulta_al_correo()
 {
+
+
 }
 
 void listado_al_app()
