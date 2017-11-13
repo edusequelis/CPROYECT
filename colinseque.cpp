@@ -532,21 +532,223 @@ void listado_al_app()
 		arch.close();
 	}
 }
+void consulta_al_mat()
+
+{
+
+	char mat_b[5];
+
+	printf("Indica la matricula que quieres buscar"); gets(mat_b);
+
+	ifstream.arch;
+
+	arch.open("alumnos.txt",ios::in);
+
+	if (arch.fail())
+
+	{
+
+		printf("El archivo no existe");
+
+	}
+
+	else
+
+	{
+
+		while(!arch.eof())
+
+		{
+
+			arch >>mat>>nom>>app>>apm>>dn>>mn>>an>>prom>>car>>cor;
+
+			if(strcmp((mat,mat_b)==0))
+
+			{
+
+				printf("Los datos del alumno son %s, %s, %s, %s, %c, %c, %c, %f, %s, %s, %s",mat, nom, app, apm, dn, mn, an, prom, car, cor);
+
+			}
+
+		}
+
+	arch.close();
+
+	}
+
+}
+
 void reporte_cal_un()
-{
-}
 
+{
+
+	char mat_b[5];
+
+	/*printf("Indica la matricula que quieres buscar"); gets(mat_b);*/
+
+	ifstream.arch;
+
+	arch.open("alumnos.txt",ios::in);
+
+	if (arch.fail())
+
+	{
+
+		printf("El archivo no existe");
+
+	}
+
+	else
+
+	{
+
+		while(!arch.eof())
+
+		{
+
+			arch >>mat>>nom>>app>>apm>>dn>>mn>>an>>prom>>car>>cor;
+			
+			printf(" %s, %s, %s, %s, %c, %c, %c, %f, %s, %s",mat, nom, app, apm, dn, mn, an, prom, car);
+		}
+		
 void reporte_cal_car()
+
 {
+		char car_b[5];
+
+	printf("Indica la carrera que quieres buscar"); gets(car_b);
+
+	ifstream.arch;
+
+	arch.open("alumnos.txt",ios::in);
+
+	if (arch.fail())
+
+	{
+
+		printf("El archivo no existe");
+
+	}
+
+	else
+
+	{
+
+		while(!arch.eof())
+
+		{
+
+			arch >>mat>>nom>>app>>apm>>dn>>mn>>an>>prom>>car>>cor;
+
+			if(strcmp((car,car_b)==0))
+
+			{
+
+				printf("Los datos del alumno son %s, %s, %s, %s, %c, %c, %c, %f, %s, %s, %s",mat, nom, app, apm, dn, mn, an, prom, car, cor);
+
+			}
+
+		}
+
+	arch.close();
+
+	}
 }
 
-void consulta_car_cla()
+
+
+void lista_ap()
 {
+		char app_b[5];
+
+	printf("Indica el apellido que quieres buscar"); gets(app_b);
+
+	ifstream.arch;
+
+	arch.open("alumnos.txt",ios::in);
+
+	if (arch.fail())
+
+	{
+
+		printf("El archivo no existe");
+
+	}
+
+	else
+
+	{
+
+		while(!arch.eof())
+
+		{
+
+			arch >>mat>>nom>>app>>apm>>dn>>mn>>an>>prom>>car>>cor;
+
+			if(strcmp((app,app_b)==0))
+
+			{
+
+				printf("Los datos del alumno son %s, %s, %s, %s, %c, %c, %c, %f, %s, %s, %s",mat, nom, app, apm, dn, mn, an, prom, car, cor);
+
+			}
+
+		}
+
+	arch.close();
+
+	}
 }
 
-void lista_car()
+
+
+void consulta_car()
+
 {
+		char clave,cl[5],clf[30];
+		printf("Clave a consultar");
+		scanf("%c",&clave);
+	char cl_aux[3]; strcpy(cl_aux, clave);
+
+	int a=0;
+
+	ifstream carreras;
+
+	carreras.open("carreras.txt",ios::in);
+
+	while (!carreras.eof()) {
+
+		carreras >> cl >> clf;
+
+		if ( strcmp(cl, cl_aux) ==0) {
+
+			carreras.close();
+
+			a=1;
+
+		}
+
+	}
+	if(a==0) printf ("No existe");
+	if(a!=0) printf("%c significa %c"cl,clf)
+	carreras.close();
+	
+}		
+		
+void lista()
+{
+	char cl[5],clf[30];
+	ifstream carreras;
+	carreras.open("carreras.txt",ios::in);
+
+	while (!carreras.eof()) {
+
+		carreras >> cl >> clf;
+		printf("%c"cl);
+	}
 }
+	
+
 
 
 void menu()
