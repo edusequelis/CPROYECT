@@ -246,7 +246,7 @@ void pide ()
 
 		ifstream arch;
 
-	arch.open("ejemplo.txt",ios::in);
+	arch.open("alumnos.txt",ios::in);
 
 	arch >> mat >> nom >> app >> apm >> mn >> an >> prom >> car;
 
