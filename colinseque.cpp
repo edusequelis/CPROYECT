@@ -43,7 +43,7 @@ void pide ()
 
 	int q=1, w=0, p=1;
 
-	while((q!=0)||(w!=4)||(digit==true)||(p==1))
+	while((q!=0)||(w!=4)||(digit==false)||(p==1))
 
 	{
 
@@ -51,7 +51,8 @@ void pide ()
 
 		w=strlen(mat);
 
-		q=strcmp(mat,"A",1);
+		q=strnicmp(mat,"A",1);
+		
 
 		for(int i=1;i<5;i++)
 
@@ -67,7 +68,8 @@ void pide ()
 
 		if (q!=0) printf ("Error la matricula tiene que iniciar con A");
 		char mat_b[5];
-		ifstream.arch;
+		strcpy(mat_b,mat);
+		ifstream arch;
 		arch.open("alumnos.txt",ios::in);
 		if (arch.fail())
 		{
@@ -77,8 +79,10 @@ void pide ()
 		{
 			while(!arch.eof())
 			{
-				arch >>mat>>nom>>app>>apm>>dn>>mn>>an>>prom>>car>>cor;
-				if(strcmp((mat,mat_b)==0))
+				int p;
+				arch >>mat;
+				p=strcmp(mat,mat_b);
+				if(p==0)
 				{
 					printf("La matricula %s ya existe, marque otra",mat);
 				}
@@ -102,12 +106,10 @@ void pide ()
 
 			if((z<1)||(z>20)) printf("Error el nombre debe de tener entre 1 y 20 caracteres");
 
-			for(int i=0;i<20;i++)
+			for(int i=0;i<strlen(nom);i++)
 
 			{
-
-				if(nom[i]==" ") {nom[i]="_";}
-
+				if(nom[i]==' ') nom[i]='_';
 			}
 
 		}
@@ -124,13 +126,13 @@ void pide ()
 
 			f=strlen(app);
 
-			if((f<1)||(f>20)) {printf("Error el nombre debe de tener entre 1 y 20 caracteres"); system("cls")}
+			if((f<1)||(f>20)) {printf("Error el nombre debe de tener entre 1 y 20 caracteres"); }
 
 			for(int i=0;i<20;i++)
 
 			{
 
-				if(app[i]==" ") {app[i]="_";}
+				if(app[i]==' ') {app[i]='_';}
 
 			}
 
@@ -154,49 +156,46 @@ void pide ()
 
 			{
 
-				if(apm[i]==" ") {apm[i]="_";}
+				if(apm[i]==' ') {apm[i]='_';}
 
 			}
 
 		}
 
-		dn=0;
-
-		while((dn<1)||(dn>31))
+		
+		int dna=0;
+		while((dna<1)||(dna>31))
 
 		{
 
 			printf("indica el día de nacimiento del alumno");
 
-			scanf("%d",&dn);
+			scanf("%d",&dna);
 
-			if((dn<1)||(dn>31)) {printf("Error el dia tiene que estar entre 1 y 31");
+			if((dna<1)||(dna>31)) {printf("Error el dia tiene que estar entre 1 y 31");}
 
-			system("cls")}
-
-			if(dn<9) {dn=dn[1]; dn[0]=0;}
+			dn[3]=dna;
+			if(dna<9) { dn[0]=0; dn[1]=dna;}
 
 		}
 
-		mn=0;
+		int mna=0;
 
-		while((mn<1)||(mn>12))
+		while((mna<1)||(mna>12))
 
 		{
 
 			printf("indica el mes de nacimiento del alumno");
 
-			scanf("%d",&mn);
+			scanf("%d",&mna);
 
-			if((mn<1)||(mn>31)) {printf("Error el mes tiene que estar entre 1 y 12");
+			if((mna<1)||(mna>12)) {printf("Error el mes tiene que estar entre 1 y 12");}
 
-			system("cls")}
-
-			if(mn<9) {mn=mn[1]; mn[0]=0;}
+			if(mna<9) {mn[1]=mna; mn[0]=0;}
 
 		}
 
-		an=0
+		an=0;
 
 		while(an<1900)
 
@@ -206,13 +205,11 @@ void pide ()
 
 			scanf("%d",&an);
 
-			if(an<1900) {printf("Error el año tiene que ser superior a 1900");
-
-			system("cls")}
+			if(an<1900) {printf("Error el año tiene que ser superior a 1900");}
 
 		}
 
-		prom=-1
+		prom=-1;
 
 		while((prom<0)||(prom>100))
 
@@ -222,33 +219,16 @@ void pide ()
 
 			scanf("%d",&prom);
 
-			if((prom<0)||(prom>100)) {printf("Error el promedio tiene que ser entre 0 y 100 ");
-
-			system("cls")}
+			if((prom<0)||(prom>100)) {printf("Error el promedio tiene que ser entre 0 y 100 ");}
 
 		}
 
-		car
-
-		{
-
-			
-
-		}
-
-		cor
-
-		{
-
-			
-
-		}
 
 		ifstream arch;
 
-	arch.open("alumnos.txt",ios::in);
+	arch.open("ejemplo.txt",ios::in);
 
-	arch >> mat >> nom >> app >> apm >> mn >> an >> prom >> car;
+	arch >> mat >> nom >> app >> apm >> dn >> mn >> an >> prom >> car;
 
 	arch.close();
 
