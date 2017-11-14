@@ -720,13 +720,32 @@ void lista()
 	carreras.open("carreras.txt",ios::in);
 
 	while (!carreras.eof()) {
-
+ 
 		carreras >> cl >> clf;
 		printf("%c",cl);
 	}
 }
-	
-
+void todos()
+{
+	system("cls");
+	ifstream arch;
+	arch.open("alumnos.txt",ios::in);
+	if (arch.fail())
+	{
+		printf("El archivo no existe");
+	}
+	else
+	{
+		while(!arch.eof())
+		{
+			arch >>mat>>nom>>app>>apm>>dn>>mn>>an>>prom>>car>>cor;
+			if(!arch.eof())
+			printf("%s, %s, %s, %s, %d, %d, %d, %f, %s, %s \n",mat, nom, app, apm, dn, mn, an, prom, car, cor);
+		}
+	}
+	arch.close();
+	getch();
+}
 
 
 void menu()
@@ -756,7 +775,7 @@ void menu()
 			if (op=='2') consulta_al_mat();
 			if (op=='3') consulta_al_correo();
 			if (op=='4') listado_al_app();
-			if (op=='5'); 
+			if (op=='5') todos(); 
 			if (op=='6') reporte_cal_car();
 			if (op=='7') consulta_car();
 			if (op=='8') lista();
