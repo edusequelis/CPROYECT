@@ -1,4 +1,4 @@
-//checar que no haya ñs
+//checar que no haya Ã±s
 
 
 
@@ -34,8 +34,8 @@
 
 
 using namespace std;
-char mat[5], nom[21], app[21], apm[21], car[5], cor, clcar[5];
-int dn[3], mn[3], an;
+char mat[5], nom[21], app[21], apm[21], car[5], cor[31], clcar[5], primera, an_aux[4],primeraletra;
+int dn, mn, an;
 float prom;
 bool digit;
 void pide ()
@@ -43,30 +43,31 @@ void pide ()
 
 	int q=1, w=0, p=1;
 
-	while((q!=0)||(w!=4)||(digit==false)||(p==1))
+	char falso[1];
+		gets(falso);
+
+	while(q!=0||w!=4||digit!=0||p!=1)
 
 	{
-
-		printf("Indica la matricula del alumno"); scanf("%s",mat);
+		printf("Indica la matricula del alumno"); gets(mat);
 
 		w=strlen(mat);
-
 		q=strnicmp(mat,"A",1);
 		
 
-		for(int i=1;i<5;i++)
+		for(int i=1;i<4;i++)
 
 		{
 
 			if (isdigit(mat[i])) digit== true;
 
-			else {printf("Error solo digitos después de la A"); digit== false;}
+			else {printf("Error solo digitos despues de la A\n'"); digit== false;}
 
 		}
 
-		if (w!=4) printf ("Error la matricula tiene que tener 4 caracteres una A y 3 digitos");
+		if (w!=4) printf ("Error la matricula tiene que tener 4 caracteres una A y 3 digitos\n");
 
-		if (q!=0) printf ("Error la matricula tiene que iniciar con A");
+		if (q!=0) printf ("Error la matricula tiene que iniciar con A\n");
 		char mat_b[5];
 		strcpy(mat_b,mat);
 		ifstream arch;
@@ -89,6 +90,7 @@ void pide ()
 			}
 		arch.close();
 		}
+		if((q==0)&&(w==4)&&(digit==0)&&(p==1))break;
 			
 	}
 
@@ -163,35 +165,35 @@ void pide ()
 		}
 
 		
-		int dna=0;
-		while((dna<1)||(dna>31))
+		 dn=0;
+		while((dn<1)||(dn>31))
 
 		{
 
-			printf("indica el día de nacimiento del alumno");
+			printf("indica el dia de nacimiento del alumno");
 
-			scanf("%d",&dna);
+			scanf("%d",&dn);
 
-			if((dna<1)||(dna>31)) {printf("Error el dia tiene que estar entre 1 y 31");}
+			if((dn<1)||(dn>31)) {printf("Error el dia tiene que estar entre 1 y 31");}
 
-			dn[3]=dna;
-			if(dna<9) { dn[0]=0; dn[1]=dna;}
+		//	dn[3]=dna;
+		//	if(dna<9) { dn[0]=0; dn[1]=dna;}
 
 		}
 
-		int mna=0;
+		 mn=0;
 
-		while((mna<1)||(mna>12))
+		while((mn<1)||(mn>12))
 
 		{
 
 			printf("indica el mes de nacimiento del alumno");
 
-			scanf("%d",&mna);
+			scanf("%d",&mn);
 
-			if((mna<1)||(mna>12)) {printf("Error el mes tiene que estar entre 1 y 12");}
+			if((mn<1)||(mn>12)) {printf("Error el mes tiene que estar entre 1 y 12");}
 
-			if(mna<9) {mn[1]=mna; mn[0]=0;}
+		//	if(mna<9) {mn[1]=mna; mn[0]=0;}
 
 		}
 
@@ -201,11 +203,11 @@ void pide ()
 
 		{
 
-			printf("indica el año de nacimiento del alumno");
+			printf("indica el aÃ±o de nacimiento del alumno");
 
 			scanf("%d",&an);
 
-			if(an<1900) {printf("Error el año tiene que ser superior a 1900");}
+			if(an<1900) {printf("Error el aÃ±o tiene que ser superior a 1900");}
 
 		}
 
@@ -217,12 +219,48 @@ void pide ()
 
 			printf("indica el promedio del alumno");
 
-			scanf("%d",&prom);
+			scanf("%f",&prom);
 
 			if((prom<0)||(prom>100)) {printf("Error el promedio tiene que ser entre 0 y 100 ");}
 
 		}
-
+	
+	int y=0;
+	while(y<2||y>4||switch==0)
+	{
+	printf("indica la carrera"); scanf("%s",car);
+	bool switch;
+	char car_b[5];
+	y=strlen(car);
+			strcpy(car_b,car);
+			ifstream arch;
+			arch.open("carreras.txt",ios::in);
+			if (arch.fail())
+			{
+				printf("El archivo no existe");
+			}
+			else
+			{
+				while(!arch.eof())
+				{
+					int carrerabusca;
+					arch >>car;
+					carrerabusca=strcmp(car,car_b);
+					if(carrerabusca==0)
+					{
+						printf("La carrera %s si existe",car); 
+					}
+					else
+					{
+						printf("La carrera no existe marque otra"); digit=false;
+					}
+					
+				}
+			arch.close();
+			getch();
+		}
+	}
+	
 
 		ifstream arch;
 
@@ -300,7 +338,7 @@ void pide ()
 
 	primera=nom[0];
 
-	cor=primera;
+	primeraletra=primera;
 
 	
 
@@ -360,7 +398,7 @@ void pide ()
 
 	for (int i=0;i<strlen(app);i++) if (app[i]==' ') app[i]='_';
 
-	arch <<mat <<" " <<nom <<" " <<app<<" "<<apm <<" " <<dn <<" " <<mn <<" " <<an <<" " <<prom <<" " <<car<<" "<<cor <<app <<an_aux[2]<<an_aux[3]<<"0"<<mn<<"0"<<dn<<"@itesm.mx" <<"\n"; 
+	arch <<mat <<" " <<nom <<" " <<app<<" "<<apm <<" " <<dn <<" " <<mn <<" " <<an <<" " <<prom <<" " <<car<<" "<<nom[0]<<app <<an_aux[2]<<an_aux[3]<<"0"<<mn<<"0"<<dn<<"@itesm.mx" <<"\n"; 
 
 	arch.close();
 
@@ -378,7 +416,7 @@ void pide ()
 
 	for (int i=0;i<strlen(app);i++) if (app[i]==' ') app[i]='_';
 
-	arch <<mat <<" " <<nom <<" " <<app<<" "<<apm <<" " <<dn <<" " <<mn <<" " <<an <<" " <<prom <<" " <<car<<" "<<cor <<app <<an_aux[2]<<an_aux[3]<<"0"<<mn<<dn<<"@itesm.mx" <<"\n"; 
+	arch <<mat <<" " <<nom <<" " <<app<<" "<<apm <<" " <<dn <<" " <<mn <<" " <<an <<" " <<prom <<" " <<car<<" "<<nom[0]<<app <<an_aux[2]<<an_aux[3]<<"0"<<mn<<dn<<"@itesm.mx" <<"\n"; 
 
 	arch.close();
 
@@ -406,31 +444,32 @@ void pide ()
 
 	for (int i=0;i<strlen(app);i++) if (app[i]==' ') app[i]='_';
 
-	arch <<mat <<" " <<nom <<" " <<app<<" "<<apm <<" " <<dn <<" " <<mn <<" " <<an <<" " <<prom <<" " <<car<<" "<<cor <<app <<an_aux[2]<<an_aux[3]<<mn<<"0"<<dn<<"@itesm.mx" <<"\n"; 
+	arch <<mat <<" " <<nom <<" " <<app<<" "<<apm <<" " <<dn <<" " <<mn <<" " <<an <<" " <<prom <<" " <<car<<" "<<nom[0] <<app <<an_aux[2]<<an_aux[3]<<mn<<"0"<<dn<<"@itesm.mx" <<"\n"; 
 
 	arch.close();
 
 	}
 
-	else
+		else
+	
+		{
+	
+			ofstream arch;
+		
+			arch.open("alumnos.txt", ios::app);
+		
+			for (int i=0;i<strlen(apm);i++) if (apm[i]==' ') apm[i]='_';
+		
+			for (int i=0;i<strlen(app);i++) if (app[i]==' ') app[i]='_';
+		
+			arch <<mat <<" " <<nom <<" " <<app<<" "<<apm <<" " <<dn <<" " <<mn <<" " <<an <<" " <<prom <<" " <<car<<" "<<nom[0] <<app <<an_aux[2]<<an_aux[3]<<mn<<dn<<"@itesm.mx" <<"\n"; 
+		
+			arch.close();
 
-	{
-
-	ofstream arch;
-
-	arch.open("alumnos.txt", ios::app);
-
-	for (int i=0;i<strlen(apm);i++) if (apm[i]==' ') apm[i]='_';
-
-	for (int i=0;i<strlen(app);i++) if (app[i]==' ') app[i]='_';
-
-	arch <<mat <<" " <<nom <<" " <<app<<" "<<apm <<" " <<dn <<" " <<mn <<" " <<an <<" " <<prom <<" " <<car<<" "<<cor <<app <<an_aux[2]<<an_aux[3]<<mn<<dn<<"@itesm.mx" <<"\n"; 
-
-	arch.close();
-
+		}
 	}
 
-	}
+}
 //grabar alumnos
 /*void grabardatos()
 {
@@ -445,7 +484,7 @@ void consulta_al_mat()
 {
 	char mat_b[5];
 	printf("Indica la matricula que quieres buscar"); gets(mat_b);
-	ifstream.arch;
+	ifstream arch;
 	arch.open("alumnos.txt",ios::in);
 	if (arch.fail())
 	{
@@ -456,7 +495,7 @@ void consulta_al_mat()
 		while(!arch.eof())
 		{
 			arch >>mat>>nom>>app>>apm>>dn>>mn>>an>>prom>>car>>cor;
-			if(strcmp((mat,mat_b)==0))
+			if(strcmp(mat,mat_b)==0)
 			{
 				printf("Los datos del alumno son %s, %s, %s, %s, %c, %c, %c, %f, %s, %s",mat, nom, app, apm, dn, mn, an, prom, car);
 			}
@@ -469,7 +508,7 @@ void consulta_al_correo()
 {
 char cor_b[31];
 	printf("Indica el correo que quieres buscar"); gets(cor_b);
-	ifstream.arch;
+	ifstream arch;
 	arch.open("alumnos.txt",ios::in);
 	if (arch.fail())
 	{
@@ -480,7 +519,7 @@ char cor_b[31];
 		while(!arch.eof())
 		{
 			arch >>mat>>nom>>app>>apm>>dn>>mn>>an>>prom>>car>>cor;
-			if(strcmp((cor,cor_b)==0))
+			if(strcmp(cor,cor_b)==0)
 			{
 				printf("Los datos del alumno son %s, %s, %s, %s, %c, %c, %c, %f, %s, %s",mat, nom, app, apm, dn, mn, an, prom, car);
 			}
@@ -491,9 +530,10 @@ char cor_b[31];
 
 void listado_al_app()
 {
+	char app_b[21];
 	char app_list[21];
 	printf("Indica el apellido paterno que quieres buscar"); gets(app_b);
-	ifstream.arch;
+	ifstream arch;
 	arch.open("alumnos.txt",ios::in);
 	if (arch.fail())
 	{
@@ -504,58 +544,13 @@ void listado_al_app()
 		while(!arch.eof())
 		{
 		arch >>mat>>nom>>app>>apm>>dn>>mn>>an>>prom>>car>>cor;
-			if(strcmp(app,app_b==0))
+			if(strcmp(app,app_b)==0)
 			{
 				printf("Los datos del alumno son %s, %s, %s, %s, %c, %c, %c, %f, %s, %s/n",mat, nom, app, apm, dn, mn, an, prom, car);
 			}
 		}
 		arch.close();
 	}
-}
-void consulta_al_mat()
-
-{
-
-	char mat_b[5];
-
-	printf("Indica la matricula que quieres buscar"); gets(mat_b);
-
-	ifstream.arch;
-
-	arch.open("alumnos.txt",ios::in);
-
-	if (arch.fail())
-
-	{
-
-		printf("El archivo no existe");
-
-	}
-
-	else
-
-	{
-
-		while(!arch.eof())
-
-		{
-
-			arch >>mat>>nom>>app>>apm>>dn>>mn>>an>>prom>>car>>cor;
-
-			if(strcmp((mat,mat_b)==0))
-
-			{
-
-				printf("Los datos del alumno son %s, %s, %s, %s, %c, %c, %c, %f, %s, %s, %s",mat, nom, app, apm, dn, mn, an, prom, car, cor);
-
-			}
-
-		}
-
-	arch.close();
-
-	}
-
 }
 
 void reporte_cal_un()
@@ -566,7 +561,7 @@ void reporte_cal_un()
 
 	/*printf("Indica la matricula que quieres buscar"); gets(mat_b);*/
 
-	ifstream.arch;
+	ifstream arch;
 
 	arch.open("alumnos.txt",ios::in);
 
@@ -590,6 +585,8 @@ void reporte_cal_un()
 			
 			printf(" %s, %s, %s, %s, %c, %c, %c, %f, %s, %s",mat, nom, app, apm, dn, mn, an, prom, car);
 		}
+	}
+}
 		
 void reporte_cal_car()
 
@@ -598,7 +595,7 @@ void reporte_cal_car()
 
 	printf("Indica la carrera que quieres buscar"); gets(car_b);
 
-	ifstream.arch;
+	ifstream arch;
 
 	arch.open("alumnos.txt",ios::in);
 
@@ -620,7 +617,7 @@ void reporte_cal_car()
 
 			arch >>mat>>nom>>app>>apm>>dn>>mn>>an>>prom>>car>>cor;
 
-			if(strcmp((car,car_b)==0))
+			if(strcmp(car,car_b)==0)
 
 			{
 
@@ -643,7 +640,7 @@ void lista_ap()
 
 	printf("Indica el apellido que quieres buscar"); gets(app_b);
 
-	ifstream.arch;
+	ifstream arch;
 
 	arch.open("alumnos.txt",ios::in);
 
@@ -665,7 +662,7 @@ void lista_ap()
 
 			arch >>mat>>nom>>app>>apm>>dn>>mn>>an>>prom>>car>>cor;
 
-			if(strcmp((app,app_b)==0))
+			if(strcmp(app,app_b)==0)
 
 			{
 
@@ -685,10 +682,11 @@ void lista_ap()
 void consulta_car()
 
 {
-		char clave,cl[5],clf[30];
+		char clave[5],cl[5],clf[30];
 		printf("Clave a consultar");
-		scanf("%c",&clave);
-	char cl_aux[3]; strcpy(cl_aux, clave);
+		gets(clave);
+	char cl_aux[3]; 
+	strcpy(cl_aux, clave);
 
 	int a=0;
 
@@ -710,7 +708,7 @@ void consulta_car()
 
 	}
 	if(a==0) printf ("No existe");
-	if(a!=0) printf("%c significa %c"cl,clf)
+	if(a!=0) printf("%c significa %c",cl,clf);
 	carreras.close();
 	
 }		
@@ -724,7 +722,7 @@ void lista()
 	while (!carreras.eof()) {
 
 		carreras >> cl >> clf;
-		printf("%c"cl);
+		printf("%c",cl);
 	}
 }
 	
@@ -754,15 +752,19 @@ void menu()
 		}
 		else
 		{
-			if (op=='1') 
-			if (op=='2') 
-			if (op=='3')
-			if (op=='4') 
-			if (op=='5') 
-			if (op=='6')
-			if (op=='7') 
-			if (op=='8') 
-			if (op=='9') 
+			if (op=='1') pide();
+			if (op=='2') consulta_al_mat();
+			if (op=='3') consulta_al_correo();
+			if (op=='4') listado_al_app();
+			if (op=='5'); 
+			if (op=='6') reporte_cal_car();
+			if (op=='7') consulta_car();
+			if (op=='8') lista();
+			if (op=='9') break;
 		}
 	}
+}
+main()
+{
+	menu();
 }
